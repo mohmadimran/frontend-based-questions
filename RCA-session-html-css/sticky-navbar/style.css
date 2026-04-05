@@ -1,0 +1,27 @@
+.navbar{
+position:sticky;
+top:0;
+background-color: aliceblue;
+z-index: 100;
+padding: 20px 30px;
+}
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+}
+
+.navbar ul li{
+
+    list-style: none;
+}
+.navbar ul li a{
+text-decoration:none
+}
+
+@media (max-width:768px){
+    .navbar{
+        display: block;
+    }
+}

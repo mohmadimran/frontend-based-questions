@@ -1,0 +1,211 @@
+🎯 What are Time and Space Complexity?
+Time Complexity (TC): How runtime grows as input size increases
+
+Space Complexity (SC): How memory usage grows as input size increases
+
+📊 Big O Notation Basics
+Common Complexities (Fastest to Slowest):
+
+O(1) - Constant time/space
+
+O(log n) - Logarithmic
+
+O(n) - Linear
+
+O(n log n) - Linearithmic
+
+O(n²) - Quadratic
+
+O(2ⁿ) - Exponential
+
+🔍 Step-by-Step Calculation Method
+Step 1: Identify Input Size (n)
+javascript
+// n = length of the array
+function example(arr) { // n = arr.length
+  // code here
+}
+Step 2: Count Operations (for TC)
+Step 3: Count Memory Usage (for SC)
+🧮 Calculating TC and SC for Common Patterns
+Pattern 1: Simple Loop - O(n) TC, O(1) SC
+javascript
+function sumArray(arr) { // n = arr.length
+  let sum = 0;                    // O(1) space
+  for (let i = 0; i < arr.length; i++) { // O(n) time
+    sum += arr[i];                // O(1) per iteration
+  }
+  return sum;                     // O(1)
+}
+// TC: O(n), SC: O(1)
+Pattern 2: Nested Loops - O(n²) TC, O(1) SC
+javascript
+function findPairs(arr) { // n = arr.length
+  for (let i = 0; i < arr.length; i++) {       // O(n)
+    for (let j = i + 1; j < arr.length; j++) { // O(n) 
+      console.log(arr[i], arr[j]);             // O(1)
+    }
+  }
+}
+// TC: O(n × n) = O(n²), SC: O(1)
+Pattern 3: Creating New Array - O(n) TC, O(n) SC
+javascript
+function doubleArray(arr) { // n = arr.length
+  const result = [];                 // O(n) space
+  for (let i = 0; i < arr.length; i++) { // O(n) time
+    result.push(arr[i] * 2);         // O(1) per iteration
+  }
+  return result;                     // O(1)
+}
+// TC: O(n), SC: O(n)
+🔄 Let's Analyze Your removeDuplicates Function
+javascript
+function removeDuplicates(arr) { // n = arr.length
+  const seen = {};      // O(n) space (worst case)
+  const result = [];    // O(n) space (worst case)
+  
+  for (let i = 0; i < arr.length; i++) { // O(n) time
+    if (!seen[arr[i]]) {          // O(1) object lookup
+      seen[arr[i]] = true;        // O(1) assignment
+      result.push(arr[i]);        // O(1) push
+    }
+  }
+  return result;                  // O(1)
+}
+Time Complexity Analysis:
+Loop runs n times (where n = arr.length)
+
+Each operation inside loop is O(1)
+
+Total TC = n × O(1) = O(n)
+
+Space Complexity Analysis:
+seen object: stores up to n unique keys → O(n)
+
+result array: stores up to n unique values → O(n)
+
+Total SC = O(n) + O(n) = O(n)
+
+Final: TC = O(n), SC = O(n)
+
+🧪 More Examples with Calculations
+Example 1: Binary Search - O(log n) TC, O(1) SC
+javascript
+function binarySearch(arr, target) {
+  let left = 0, right = arr.length - 1;  // O(1) space
+  
+  while (left <= right) {                // O(log n) iterations
+    const mid = Math.floor((left + right) / 2); // O(1)
+    
+    if (arr[mid] === target) return mid; // O(1)
+    if (arr[mid] < target) left = mid + 1; // O(1)
+    else right = mid - 1;                // O(1)
+  }
+  return -1;                             // O(1)
+}
+// TC: O(log n), SC: O(1)
+Example 2: Fibonacci - O(2ⁿ) TC vs O(n) TC
+javascript
+// Naive recursive (inefficient)
+function fibNaive(n) {
+  if (n <= 1) return n;                   // O(1)
+  return fibNaive(n-1) + fibNaive(n-2);   // O(2ⁿ) - exponential!
+}
+// TC: O(2ⁿ), SC: O(n) - call stack depth
+
+// Dynamic programming (efficient)
+function fibDP(n) {
+  if (n <= 1) return n;                   // O(1)
+  const dp = [0, 1];                      // O(n) space
+  
+  for (let i = 2; i <= n; i++) {          // O(n) time
+    dp[i] = dp[i-1] + dp[i-2];            // O(1)
+  }
+  return dp[n];                           // O(1)
+}
+// TC: O(n), SC: O(n)
+📈 Visualization of Complexities
+Time Complexity Growth:
+text
+n    O(1)  O(log n)  O(n)  O(n²)  O(2ⁿ)
+1    1     0         1     1      2
+10   1     1         10    100    1024
+100  1     2         100   10000  1.26e+30
+Space Complexity Examples:
+javascript
+// O(1) - Constant space
+let a = 1, b = 2; // Fixed amount of variables
+
+// O(n) - Linear space  
+const arr = new Array(n); // Grows with input size
+
+// O(n²) - Quadratic space
+const matrix = new Array(n).fill().map(() => new Array(n));
+🎯 Practical Calculation Rules
+Rule 1: Drop Constants
+javascript
+// O(2n) = O(n)
+// O(n/2) = O(n)
+// O(1000) = O(1)
+Rule 2: Drop Lesser Terms
+javascript
+// O(n² + n) = O(n²)
+// O(n + log n) = O(n)
+// O(n! + 2ⁿ) = O(n!)
+Rule 3: Different Variables for Different Inputs
+javascript
+function processTwoArrays(arr1, arr2) { // n = arr1.length, m = arr2.length
+  for (let i = 0; i < arr1.length; i++) { // O(n)
+    // code
+  }
+  for (let j = 0; j < arr2.length; j++) { // O(m)
+    // code
+  }
+}
+// TC: O(n + m), not O(2n)
+🔧 Step-by-Step Analysis Framework
+For Any Function:
+Identify input size(s) → what is 'n'?
+
+Count operations in terms of n
+
+Count memory allocation in terms of n
+
+Simplify using Big O rules
+
+Example Analysis:
+javascript
+function example(arr) { // n = arr.length
+  const result = [];                    // O(n) space
+  for (let i = 0; i < arr.length; i++) {     // O(n) time
+    for (let j = 0; j < arr.length; j++) {   // O(n) time
+      result.push(arr[i] + arr[j]);          // O(1) time
+    }
+  }
+  return result;                           // O(1)
+}
+// TC: O(n × n) = O(n²)
+// SC: O(n²) - result stores n² elements!
+✅ Quick Reference Guide
+Pattern	Time Complexity	Space Complexity
+Single loop	O(n)	O(1)
+Nested loops	O(n²)	O(1)
+Recursion (depth d)	O(branchesᵈ)	O(d)
+Hash map lookup	O(1) avg	O(n)
+Array iteration	O(n)	O(1)
+Sorting	O(n log n)	O(1) or O(n)
+🎓 Key Takeaways
+TC focuses on operations count
+
+SC focuses on memory allocation
+
+Worst-case analysis is most common
+
+Constants and lower terms are ignored
+
+Different inputs get different variables
+
+Remember: Big O describes growth rate, not exact time/memory!
+
+Would you like me to analyze the TC/SC of any specific algorithm you're working with?
+

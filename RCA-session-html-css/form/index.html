@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .form-container {
+        background: white;
+        padding: 30px;
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+      }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #4caf50;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+      }
+
+      .inline-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        background: #4caf50;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #45a049;
+      }
+
+      @media (max-width: 600px) {
+        .form-container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h2>Student Registration</h2>
+
+      <form>
+        <div class="form-group">
+          <label for="name"
+            >Full Name:<input id="name" type="text" name="username" required
+          /></label>
+        </div>
+
+        <div class="form-group">
+          <label for="email"
+            >Email: <input id="email" type="email" name="email" required />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="password"
+            >Password:
+            <input id="password" type="password" name="password" required />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="age"
+            >Age: <input id="age" type="number" name="age" required />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="dob"
+            >Date of Birth:
+            <input id="dob" type="date" name="date-of-birth" required />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="inline-group">
+            <label for="male">
+              <input type="radio" name="gender" value="male" id="male" />
+              male</label
+            >
+
+            <label for="female">
+              <input type="radio" name="gender" value="female" id="female" />
+              female</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="course">Course</label>
+          <select id="course" name="course" required>
+            <option value="">select value</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+          </select>
+        </div>
+
+        <!-- Skills -->
+        <div class="form-group">
+          <label>Skills</label>
+          <div class="inline-group">
+            <label><input type="checkbox" name="Skills" value="html"/> HTML</label>
+            <label><input type="checkbox" name="Skills" value="css"/> CSS</label>
+            <label><input type="checkbox" name="Skills" value="JavaScript"/> JavaScript</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            id="address"
+            rows="3"
+            name="address"
+            placeholder="enter your adress"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </body>
+</html>

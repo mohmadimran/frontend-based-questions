@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr 100px;
+        height: 100vh;
+      }
+      header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: aliceblue;
+      }
+      header ul {
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-between; */
+        gap: 10px;
+        align-items: center;
+      }
+      header ul li {
+        list-style: none;
+      }
+      main {
+        /* display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap; */
+        /* background-color: green; */
+
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows:repeat(2,1fr);
+        /* justify-content: center; */
+        justify-items: center;
+        gap: 10px;
+        /* margin: 30px auto; */
+      }
+      .cards {
+        width: 50%;
+        max-width: 200px;
+        height: 300px;
+        background-color: burlywood;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        
+      }
+
+      footer{
+        display: grid;
+        place-items: center;
+        padding: 20px 30px;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <header>
+        <h1>logo</h1>
+        <ul>
+          <li>home</li>
+          <li>about</li>
+          <li>contact</li>
+          <li>mail</li>
+        </ul>
+      </header>
+      <main>
+        <div class="cards">
+          <h2>product</h2>
+          <p>price</p>
+          <button>add to cart</button>
+        </div>
+        <div class="cards">
+          <h2>product</h2>
+          <p>price</p>
+          <button>add to cart</button>
+        </div>
+        <div class="cards">
+          <h2>product</h2>
+          <p>price</p>
+          <button>add to cart</button>
+        </div>
+        <div class="cards">
+          <h2>product</h2>
+          <p>price</p>
+          <button>add to cart</button>
+        </div>
+        <div class="cards">
+          <h2>product</h2>
+          <p>price</p>
+          <button>add to cart</button>
+        </div>
+        <div class="cards">
+          <h2>product</h2>
+          <p>price</p>
+          <button>add to cart</button>
+        </div>
+      </main>
+      <footer>
+        <p>all right resverd</p>
+      </footer>
+    </section>
+  </body>
+</html>
